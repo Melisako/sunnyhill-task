@@ -29,17 +29,17 @@ export class ProductsComponent {
 
   openEditProductModal(product: any): void {
     const productId = product['id'];
-    const modalRef = this.modalService.open(EditProductComponent, { size: 'lg' }); // Adjust size as needed
-    modalRef.componentInstance.product = this.productService.products.find(p => p.id === productId); // Pass the product to the modal
+    const modalRef = this.modalService.open(EditProductComponent, { size: 'lg' }); 
+    modalRef.componentInstance.product = this.productService.products.find(p => p.id === productId); 
     modalRef.result.then((result) => {
       result['id'] = productId
       this.productService.updateProduct(result)
-      // Handle modal close result if needed
+
 
 
 
     }, (reason) => {
-      // Handle modal dismissal reason if needed
+
     });
   }
 

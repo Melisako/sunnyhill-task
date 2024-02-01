@@ -7,17 +7,16 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent {
-  newProduct: any = {}; // Object to store new product data
+  newProduct: any = {}; 
 
   constructor(public activeModal: NgbActiveModal) {}
 
   closeModal(): void {
-    this.activeModal.dismiss(); // Close the modal without passing any data
+    this.activeModal.dismiss(); 
   }
 
   addProduct(): void {
-    // Implement your logic to add the product
-    // Once the product is added, you can close the modal and pass the new product data back to the parent component
+    
     this.activeModal.close(this.newProduct);
   }
 }
