@@ -12,12 +12,14 @@ body{
     margin: 0px;
 }
 
-
+.left-section{
+    background-color: #f7f9fb;
+}
 .right-section {
 
 
     background-color: #e1dedea2;
- padding: 140px;
+ padding: 150px;
 }
 
 .image {
@@ -92,7 +94,7 @@ margin-left: 4rem;
 .forgot-password{
     color: #6a6b6b;
     font-size: 12.5px;
-    margin-left: 14.8rem;
+    margin-left: 13.9rem;
     margin-top:0.5rem ;
 }
 .p-clousing{
@@ -105,7 +107,7 @@ margin-left: 4rem;
 }
 
 img{
-width: 75%;
-    margin-top: 2.4rem;
-    margin-left: 4rem;
+width: 66%;
+    margin-top: 4rem;
+    margin-left: 6rem;
 }
