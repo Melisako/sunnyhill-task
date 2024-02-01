@@ -24,6 +24,7 @@ onLogin() {
     console.log('Response:', res);
     if (res.token) { 
       alert("Login Success");
+      localStorage.setItem("token", res.token);
       this.router.navigateByUrl('/homepage');
     } else {
       alert(res.error || "Login failed"); 
