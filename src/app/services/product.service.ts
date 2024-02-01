@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProductService {
-  private products: Product[] = []; // Array to hold products
+  public products: Product[] = []; // Array to hold products
 
   constructor() {
     // Mock data for demonstration, you can replace this with actual data retrieval logic

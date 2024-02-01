@@ -30,7 +30,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: ProductsComponent
+        loadChildren: () => import('./pages/products/products.module').then((m) => m.ProductsModule),
       }
    
     

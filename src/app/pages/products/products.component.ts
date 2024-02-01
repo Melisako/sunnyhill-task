@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'; // Import NgbModal from ng-bootstrap
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'; // Import NgbActiveModal from ng-bootstrap
-import { ProductService, Product } from '../../services/product.service';
-import { ProductAddComponent } from '../../modals/product-add/product-add.component';
-import { ProductEditComponent } from '../../modals/product-edit/product-edit.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { ProductService } from '../../services/product.service';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
+
 
 @Component({
   selector: 'app-products',
@@ -11,45 +12,42 @@ import { ProductEditComponent } from '../../modals/product-edit/product-edit.com
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
-  products: Product[] = [];
-
-  constructor(
-    private productService: ProductService,
-    private modalService: NgbModal
-  ) {
-    this.loadProducts();
-  }
-
-  loadProducts(): void {
-    this.products = this.productService.getProducts();
-  }
+  
+  constructor(private modalService: NgbModal, public productService: ProductService) { }
 
   openAddProductModal(): void {
-    const modalRef = this.modalService.open(ProductAddComponent);
-    modalRef.result.then((newProduct: Product) => {
-      if (newProduct) {
-        this.productService.addProduct(newProduct);
-        this.loadProducts();
-      }
+    
+    const modalRef = this.modalService.open(AddProductComponent, { size: 'lg' }); // Adjust size as needed
+    modalRef.result.then((result) => {
+      console.log(result);
+      this.productService.addProduct(result);
+      // Handle modal close result if needed
+    }, (reason) => {
+      // Handle modal dismissal reason if needed
     });
   }
 
-  openEditProductModal(productId: number): void {
-    const productToEdit = this.products.find(p => p.id === productId);
-    const modalRef = this.modalService.open(ProductEditComponent);
-    modalRef.componentInstance.product = { ...productToEdit }; // Pass a copy to avoid editing original product directly
-    modalRef.result.then((updatedProduct: Product) => {
-      if (updatedProduct) {
-        this.productService.updateProduct(updatedProduct);
-        this.loadProducts();
-      }
+  openEditProductModal(product: any): void {
+    const productId = product['id'];
+    const modalRef = this.modalService.open(EditProductComponent, { size: 'lg' }); // Adjust size as needed
+    modalRef.componentInstance.product = this.productService.products.find(p => p.id === productId); // Pass the product to the modal
+    modalRef.result.then((result) => {
+      result['id'] = productId
+      this.productService.updateProduct(result)
+      // Handle modal close result if needed
+
+
+
+    }, (reason) => {
+      // Handle modal dismissal reason if needed
     });
   }
 
-  deleteProduct(productId: number): void {
-    if (confirm('Are you sure you want to delete this product?')) {
-      this.productService.deleteProduct(productId);
-      this.loadProducts();
-    }
+  deleteProductFromList(product: any){
+    const productId = product['id'];
+    this.productService.deleteProduct(productId)
+
   }
+
+
 }

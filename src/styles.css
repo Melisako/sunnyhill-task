@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+/* In your global styles or component-specific styles */
+.modal-backdrop {
+    z-index: 1050; /* Adjust this value as needed */
+}
+
+.modal {
+    z-index: 1060; /* Adjust this value as needed */
+}

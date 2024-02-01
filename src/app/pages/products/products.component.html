@@ -1,3 +1,4 @@
+
 <div class="container-lg">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -5,10 +6,9 @@
                 <div class="row">
                     <div class="col-sm-8"><h2>Product Form</h2></div>
                     <br>
-                    <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new" style="margin-left: 130px; margin-bottom: 30px;" (click)="openAddProductModal()">
-                            <i class="fa fa-plus"></i> Add New
-                        </button>
+                    <div class="col-sm-4" (click)="openAddProductModal()">
+                        <button  type="button" class="btn btn-info add-new" style="margin-left: 130px; margin-bottom: 30px;"
+                        ><i class="fa fa-plus"></i> Add New</button>
                     </div>
                 </div>
             </div>
@@ -23,18 +23,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products">
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.category }}</td>
-                        <td>{{ product.phone }}</td>
-                        <td>{{ product.date }}</td>
+                    <tr *ngFor="let product of productService.products">
+                        <td>{{ product['name'] }}</td>
+                        <td>{{ product['category'] }}</td>
+                        <td>{{ product['phone'] }}</td>
+                        <td>{{ product['date'] }}</td>
                         <td>
-                            <a class="material-icons edit" title="Edit" data-toggle="tooltip" (click)="openEditProductModal(product.id)">edit</a>
-                            <a class="material-icons delete" title="Delete" data-toggle="tooltip" (click)="deleteProduct(product.id)">delete</a>
+                            <a class="material-icons edit" title="Edit" data-toggle="tooltip" (click)="openEditProductModal(product)">edit</a>
+                            <a class="material-icons delete" title="Delete" data-toggle="tooltip" (click)="deleteProductFromList(product)">delete</a>
                         </td>
                     </tr>
+                      
                 </tbody>
             </table>
         </div>
     </div>
-</div>
+</div>     
