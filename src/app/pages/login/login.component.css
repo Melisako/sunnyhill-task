@@ -58,7 +58,7 @@ font-size:14px ;
  margin-left: 4.1rem;
     width: 75%;
     padding: 6px;
-    background-color: #fffdfd;
+    background-color: rgb(255, 255, 255);
     color: rgb(88, 87, 87);
     border: 1.35px solid rgb(109, 109, 109);
     cursor: pointer;
@@ -102,4 +102,10 @@ margin-left: 4rem;
 .form-wrap{
 
     margin-top: 4rem;
+}
+
+img{
+width: 75%;
+    margin-top: 2.4rem;
+    margin-left: 4rem;
 }

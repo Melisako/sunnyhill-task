@@ -31,7 +31,7 @@ onLogin() {
     }
   }, error => {
     console.error("HTTP Error:", error);
-    alert("An error occurred. Please try again.");
+    alert("Invalid Credentials. Please try again.");
   });
 }
 }
