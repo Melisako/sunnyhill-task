@@ -4,13 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProductService {
-  public products: Product[] = []; // Array to hold products
+  public products: Product[] = []; 
 
   constructor() {
-    // Mock data for demonstration, you can replace this with actual data retrieval logic
+    
     this.products = [
-      { id: 1, name: 'Product 1', category: 'Category 1', phone: '1234567890', date: '2024-02-01' },
-      { id: 2, name: 'Product 2', category: 'Category 2', phone: '0987654321', date: '2024-02-02' }
+      { id: 1, name: 'Product 1', category: 'Category 1', phone: '049808029', date: '2024-02-01' },
+      { id: 2, name: 'Product 2', category: 'Category 2', phone: '044880122', date: '2024-02-02' }
     ];
   }
 
@@ -19,7 +19,7 @@ export class ProductService {
   }
 
   addProduct(product: Product): void {
-    // Generate unique id for new product
+
     product.id = this.products.length + 1;
     this.products.push(product);
   }
@@ -36,7 +36,7 @@ export class ProductService {
   }
 }
 
-// Product interface
+
 export interface Product {
   id?: number;
   name: string;

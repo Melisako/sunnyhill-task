@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap'; // Import NgbModal from ng-bootstrap
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'; // Import NgbActiveModal from ng-bootstrap
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'; 
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'; 
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ProductService } from '../../services/product.service';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
@@ -17,13 +17,13 @@ export class ProductsComponent {
 
   openAddProductModal(): void {
     
-    const modalRef = this.modalService.open(AddProductComponent, { size: 'lg' }); // Adjust size as needed
+    const modalRef = this.modalService.open(AddProductComponent, { size: 'lg' });  
     modalRef.result.then((result) => {
       console.log(result);
       this.productService.addProduct(result);
-      // Handle modal close result if needed
+     
     }, (reason) => {
-      // Handle modal dismissal reason if needed
+    
     });
   }
 
